@@ -1,0 +1,61 @@
+---
+import Form from "./Form.astro"
+---
+
+<section id="contact">
+    <div class="container">
+        <div class="contact-container">
+            <div class="info-container">
+                <h2>Du hast Fragen?</h2>
+                <p>Zögere nicht und stelle uns deine Fragen über das Kontaktformular.
+                    Wir werden uns in den nächsten 24 Stunden bei Dir melden.</p>
+                <img src="/images/arrow-white.png" alt="Arrow to the right" loading="lazy">
+            </div>
+            <div class="form-container">
+                <Form />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        background: var(--primary-color);
+        padding: 80px 0;
+    }
+
+    .contact-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 64px;
+    }
+
+    .info-container {
+        position: relative;
+        width: 50%;
+        height: auto;
+    }
+
+    h2 {
+        font-size: 40px;
+        color: var(--text-white);
+        padding-bottom: 32px;
+    }
+
+    p {
+        font-size: 18px;
+        color: var(--text-whitesmoke);
+    }
+
+    img {
+        position: absolute;
+        bottom: -40px;
+        right: 20px;
+        width: 300px;
+        opacity: 0.5;
+    }
+
+    .form-container {
+        width: 50%;
+    }
+</style>

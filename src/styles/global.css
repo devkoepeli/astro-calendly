@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    font-family: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary-color: rgb(21, 35, 66);
+    --primary-color-light: rgba(21, 35, 66, .1);
+    --text-primary: rgb(21, 35, 66);
+    --text-white: #fff;
+    --text-whitesmoke: rgba(255, 255, 255, .75); 
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 48px;
+    padding-right: 48px;
+}

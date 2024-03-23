@@ -1,0 +1,118 @@
+---
+import MainButton from "./MainButton.astro"
+---
+
+<header>
+    <div class="container">
+        <div class="header-container">
+            <nav>
+                <menu>
+                    <li><a class="nav-link" href="/">Dienstleistungen</a></li>
+                    <li><a class="nav-link" href="#contact">Kontakt</a></li>
+                    <li><a class="nav-link" href="#booking">Termin</a></li>
+                </menu>
+            </nav>
+            <div class="img-container">
+                <a href="/">
+                    <img id="header-image" src="/images/logo-white.png" alt="Logo">
+                </a>
+            </div>
+            <div class="btn-container">
+                <MainButton href="#booking" text="Gespräch buchen">
+            </div>
+        </div>
+    </div>
+    
+</header>
+
+<style>
+    header {
+        color: var(--text-white);
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        background: transparent;
+        transition: all .15s ease-in-out;
+    }
+
+    .header-scroll {
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+    }
+
+    nav {
+        max-width: 300px;
+        width: 100%;
+        display: flex;
+        justify-content: start;
+    }
+
+    menu {
+        list-style-type: none;
+        display: flex;
+        gap: 32px;
+    }
+
+    .img-container {
+        max-width: 300px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    img {
+        width: 200px;
+    }
+
+    .btn-container {
+        max-width: 300px;
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+
+    .btn-transparent {
+        background: white;
+    }
+
+    .text-black {
+        color: var(--primary-color);
+    }
+</style>
+
+<script>
+    window.addEventListener('scroll', changeHeaderBackground);
+
+    const imageUrls = {
+        whiteLogo: '/images/logo-white.png',
+        blackLogo: '/images/logo-black.png'
+    }
+
+    function changeHeaderBackground() {
+        const header = document.querySelector('header');
+        const logo = document.getElementById('header-image');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        if (window.scrollY > 0) {
+            header?.classList.add('header-scroll');
+            logo?.setAttribute('src', imageUrls.blackLogo);
+            navLinks.forEach(navLink => {
+                navLink.classList.add('text-black');
+            })
+        } else {
+            header?.classList.remove('header-scroll');
+            logo?.setAttribute('src', imageUrls.whiteLogo);
+            navLinks.forEach(navLink => {
+                navLink.classList.remove('text-black');
+            })
+        }
+    }
+</script>

@@ -1,0 +1,55 @@
+---
+import TranspButton from "./TranspButton.astro"
+---
+
+<section>
+    <div class="container">
+        <div class="hero-container">
+            <h1>Du hast das Recht auf<br>eine Traumwohnung</h1>
+            <p>Gebe deinen Träumen form und gestalte mit uns deine Innenausrichtung für dein Zuhause</p>
+            <div class="btn-container">
+                <TranspButton href="#booking" text="Gespräch buchen" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        height: 100%;
+        background-image: 
+            linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+            url(/images/hero-img.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    .hero-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        gap: 24px;
+    }
+
+    h1 {
+        font-size: 64px;
+        color: var(--text-white);
+        text-align: center;
+    }
+
+    p {
+        font-size: 20px;
+        color: var(--text-whitesmoke);
+    }
+
+    .btn-container {
+        padding-top: 12px;
+    }
+</style>
