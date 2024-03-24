@@ -6,12 +6,12 @@ import Form from "./Form.astro"
     <div class="container">
         <div class="contact-container">
             <div class="info-container">
-                <h2>Du hast Fragen?</h2>
-                <p>Zögere nicht und stelle uns deine Fragen über das Kontaktformular.
+                <h2 class="pre-fade-in" id="contact-heading">Du hast Fragen?</h2>
+                <p class="pre-fade-in" id="contact-paragraph">Zögere nicht und stelle uns deine Fragen über das Kontaktformular.
                     Wir werden uns in den nächsten 24 Stunden bei Dir melden.</p>
-                <img src="/images/arrow-white.png" alt="Arrow to the right" loading="lazy">
-            </div>
-            <div class="form-container">
+                    <img class="pre-fade-in" id="contact-image" src="/images/arrow-white.png" alt="Arrow to the right" loading="lazy">
+                </div>
+            <div class="form-container pre-fade-in" id="form-container">
                 <Form />
             </div>
         </div>
@@ -22,6 +22,7 @@ import Form from "./Form.astro"
     section {
         background: var(--primary-color);
         padding: 80px 0;
+        overflow: hidden;
     }
 
     .contact-container {
@@ -52,10 +53,49 @@ import Form from "./Form.astro"
         bottom: -40px;
         right: 20px;
         width: 300px;
-        opacity: 0.5;
     }
 
     .form-container {
         width: 50%;
     }
+
+    .pre-fade-in {
+        transition: all 1s .5s ease-in-out;
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    .fade-in {
+       opacity: 1;
+       transform: translateY(0);
+    }
 </style>
+
+<script>
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            } 
+        })
+    }, options);
+
+    const contactHeading = document.getElementById('contact-heading');
+    const contactParagraph = document.getElementById('contact-paragraph');
+    const contactImage = document.getElementById('contact-image');
+    const form = document.getElementById('form-container');
+
+    const contactElements = [contactHeading, contactParagraph, contactImage, form];
+
+    contactElements.forEach(element => {
+        if (element) {
+            observer.observe(element);
+        }
+    })
+</script>
