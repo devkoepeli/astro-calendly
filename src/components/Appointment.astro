@@ -1,0 +1,73 @@
+---
+
+---
+
+<section id="booking">
+    <div class="container">
+        <div class="booking-container">
+            <h2 class="pre-fade-in">Buche ein kostenloses Beratungsgespräch</h2>
+            <!-- paste in data-url attribute and in the script tag below your personal calendly link -->
+            <div
+                class="calendly-inline-widget pre-fade-in"
+                data-url=""
+                style="min-width:320px;height:700px;"
+            >
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        height: 500px;
+        background: white;
+    }
+
+    .booking-container {
+        padding: 80px 0;
+        overflow: hidden;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 40px;
+        color: var(--primary-color);
+    }
+
+    .pre-fade-in {
+        opacity: 0;
+        transform: translateY(-100px);
+        transition: all 1s .5s ease-in-out;
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script
+    type="text/javascript"
+    src=""
+    async>
+</script>
+<script>
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        })
+    }, options)
+
+    const elements = document.querySelectorAll('.pre-fade-in');
+    elements.forEach(element => {
+        observer.observe(element);
+    })
+</script>
